@@ -1,0 +1,29 @@
+@model IEnumerable<Ders>
+
+    <h2>Ders Listesi</h2>
+    <a href="/Ders/Create" class="btn btn-secondary">Ders Ekle</a>
+    <hr>
+    <table class="table table-bordered custom-table">
+        <thead>
+            <tr>
+                <th style="width: 150px;">@Html.DisplayNameFor(m => m.DersId)</th>
+                <th>@Html.DisplayNameFor(m => m.Baslik)</th>
+                <th>@Html.DisplayNameFor(m => m.Ogretmen.AdSoyad)</th>
+                <th style="width: 150px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem  => item.DersId)</td>
+                    <td>@Html.DisplayFor(modelItem  => item.Baslik)</td>
+                    <td>@Html.DisplayFor(modelItem  => item.Ogretmen.AdSoyad)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.DersId" class="btn btn-primary">Düzenle</a>
+                        <a asp-action="Delete" asp-route-id="@item.DersId" class="btn btn-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

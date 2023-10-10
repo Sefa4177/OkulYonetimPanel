@@ -1,0 +1,20 @@
+@model DersKayit
+
+<h2>Ders Kayıt Ekleme</h2>
+<hr>
+<form asp-controller="DersKayit" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="OgrenciId" class="form-label">Öğrenci</label>
+        <select asp-for="OgrenciId" asp-items="ViewBag.Ogrenciler" class="form-select">
+            <option value="">Seçiniz</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="DersId" class="form-label">Ders</label>
+        <select asp-for="DersId" asp-items="ViewBag.Dersler" class="form-select">
+            <option value="">Seçiniz</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-secondary">Kaydet</button>
+</form>
